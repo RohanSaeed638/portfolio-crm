@@ -8,9 +8,9 @@ const PROJECTS = [
     category: "CRM · SaaS",
     desc: "Full-stack sales CRM with contact management, kanban pipeline, activity logging, analytics, and Stripe subscriptions. Built with Next.js 14, Supabase, Clerk auth, and dnd-kit drag-and-drop.",
     tags: ["Next.js", "Supabase", "Clerk", "Stripe", "PostgreSQL", "Tailwind"],
-    status: "Live demo",
+    status: "Portfolio",
     color: "#00C896",
-    href: "/crm/dashboard",
+    href: "#",
   },
   {
     title: "SupportAI Agent Builder",

@@ -8,22 +8,6 @@ type Context = {
   }>;
 };
 
-export async function GET(
-  req: Request,
-  { params }: Context
-) {
-  const { id } = await params;
-
-  const { data } =
-    await supabase
-      .from("proposals")
-      .select("*")
-      .eq("id", id)
-      .single();
-
-  return NextResponse.json(data);
-}
-
 export async function PATCH(
   req: Request,
   { params }: Context
@@ -34,11 +18,8 @@ export async function PATCH(
 
   const { data } =
     await supabase
-      .from("proposals")
-      .update({
-        ...body,
-        updated_at: new Date(),
-      })
+      .from("tasks")
+      .update(body)
       .eq("id", id)
       .select()
       .single();
@@ -53,7 +34,7 @@ export async function DELETE(
   const { id } = await params;
 
   await supabase
-    .from("proposals")
+    .from("tasks")
     .delete()
     .eq("id", id);
 

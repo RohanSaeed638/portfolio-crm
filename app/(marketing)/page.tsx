@@ -92,11 +92,11 @@ export default function HomePage() {
                 style={{ border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.8)" }}>
                 Get in touch
               </Link>
-              <Link href="/crm/dashboard"
+              {/* <Link href="/crm/dashboard"
                 className="px-6 py-3.5 rounded-xl font-semibold text-sm border transition-colors hover:border-indigo-500/50"
                 style={{ border: "1px solid rgba(99,102,241,0.3)", color: "#818CF8", background: "rgba(99,102,241,0.08)" }}>
                 Live CRM Demo ↗
-              </Link>
+              </Link> */}
             </div>
           </div>
 

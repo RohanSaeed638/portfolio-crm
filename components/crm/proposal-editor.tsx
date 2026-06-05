@@ -19,6 +19,9 @@ export default function ProposalEditor({
   const [saving, setSaving] =
     useState(false);
 
+  const [proposal, setProposal] =
+  useState<any>(null);
+
   const fetchProposal =
     async () => {
       const res = await fetch(
@@ -28,9 +31,9 @@ export default function ProposalEditor({
       const data =
         await res.json();
 
-      setContent(
-        data.generated_content
-      );
+      setProposal(data);
+      
+      setContent(data.generated_content);
 
       setLoading(false);
     };
@@ -53,14 +56,27 @@ export default function ProposalEditor({
               "application/json",
           },
           body: JSON.stringify({
-            generated_content:
-              content,
+            ...proposal,
+            generated_content: content,
           }),
         }
       );
 
       setSaving(false);
     };
+
+    const deleteProposal =
+  async () => {
+    await fetch(
+      `/api/proposals/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    window.location.href =
+      "/crm/proposals";
+  };
 
   if (loading) {
     return <p>Loading...</p>;
@@ -73,6 +89,38 @@ export default function ProposalEditor({
           Proposal Editor
         </h1>
 
+        <select
+          value={proposal.status}
+          onChange={(e) =>
+            setProposal({
+              ...proposal,
+              status: e.target.value,
+            })
+          }
+          className="rounded-xl border px-4 py-2"
+        >
+          <option value="draft">
+            Draft
+          </option>
+
+          <option value="sent">
+            Sent
+          </option>
+
+          <option value="approved">
+            Approved
+          </option>
+
+          <option value="rejected">
+            Rejected
+          </option>
+        </select>
+        <button
+          onClick={deleteProposal}
+          className="rounded-xl bg-red-500 px-6 py-3 text-white"
+        >
+              Delete
+        </button>
         <button
           onClick={
             saveProposal

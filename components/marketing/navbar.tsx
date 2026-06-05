@@ -68,7 +68,7 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
-          <Link
+          {/* <Link
             href="/crm/dashboard"
             className="ml-3 px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:opacity-90 hover:-translate-y-0.5"
             style={{
@@ -77,7 +77,7 @@ export default function Navbar() {
             }}
           >
             CRM Demo →
-          </Link>
+          </Link> */}
         </nav>
 
         {/* Mobile toggle */}
