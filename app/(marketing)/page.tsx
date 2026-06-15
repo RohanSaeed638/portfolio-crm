@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const STACK = ["Next.js", "TypeScript", "Supabase", "Claude API", "OpenAI", "PostgreSQL", "NestJS", "Django", "Docker"];
@@ -59,46 +60,76 @@ export default function HomePage() {
           style={{ backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px)", backgroundSize: "60px 60px" }} />
 
         <div className="mx-auto max-w-7xl px-6 pt-32 pb-20 w-full">
-          <div className="max-w-4xl">
-            {/* Status pill */}
-            <div className="hero-anim-1 inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-8 text-sm"
-              style={{ background: "var(--teal-dim)", border: "1px solid var(--teal-glow)", color: "var(--teal)" }}>
-              <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "var(--teal)" }} />
-              Available for projects · Islamabad, PK
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div >
+              {/* Status pill */}
+              <div className="hero-anim-1 inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-8 text-sm"
+                style={{ background: "var(--teal-dim)", border: "1px solid var(--teal-glow)", color: "var(--teal)" }}>
+                <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "var(--teal)" }} />
+                Available for projects · Islamabad, PK
+              </div>
+
+              <h1 className="hero-anim-2 font-bold leading-[1.05] tracking-tight mb-6"
+                style={{ fontSize: "clamp(2.8rem,7vw,5.5rem)", color: "#fff" }}>
+                I build{" "}
+                <span style={{ color: "var(--teal)" }}>AI-powered</span>
+                <br />SaaS & CRM platforms
+              </h1>
+
+              <p className="hero-anim-3 text-lg leading-relaxed max-w-2xl mb-10"
+                style={{ color: "var(--mist)" }}>
+                Full-stack developer specialising in Next.js, Claude API, and Supabase.
+                I build production-grade applications that help businesses automate,
+                scale, and grow.
+              </p>
+
+              <div className="hero-anim-4 flex flex-wrap gap-3">
+                <Link href="/projects"
+                  className="px-6 py-3.5 rounded-xl font-semibold text-sm transition-all hover:opacity-90 hover:-translate-y-0.5"
+                  style={{ background: "var(--teal)", color: "var(--ink)" }}>
+                  View my work →
+                </Link>
+                <Link href="/contact"
+                  className="px-6 py-3.5 rounded-xl font-semibold text-sm border transition-colors hover:border-white/40"
+                  style={{ border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.8)" }}>
+                  Get in touch
+                </Link>
+                {/* <Link href="/crm/dashboard"
+                  className="px-6 py-3.5 rounded-xl font-semibold text-sm border transition-colors hover:border-indigo-500/50"
+                  style={{ border: "1px solid rgba(99,102,241,0.3)", color: "#818CF8", background: "rgba(99,102,241,0.08)" }}>
+                  Live CRM Demo ↗
+                </Link> */}
+              </div>
             </div>
+            <div className="flex justify-center">
 
-            <h1 className="hero-anim-2 font-bold leading-[1.05] tracking-tight mb-6"
-              style={{ fontSize: "clamp(2.8rem,7vw,5.5rem)", color: "#fff" }}>
-              I build{" "}
-              <span style={{ color: "var(--teal)" }}>AI-powered</span>
-              <br />SaaS & CRM platforms
-            </h1>
+              <div
+                className="
+                  relative
+                  w-72
+                  h-72
+                  rounded-full
+                  overflow-hidden
+                  border
+                "
+                style={{
+                  borderColor:"var(--teal)"
+                }}
+              >
 
-            <p className="hero-anim-3 text-lg leading-relaxed max-w-2xl mb-10"
-              style={{ color: "var(--mist)" }}>
-              Full-stack developer specialising in Next.js, Claude API, and Supabase.
-              I build production-grade applications that help businesses automate,
-              scale, and grow.
-            </p>
+                <Image
+                  src="/images/rohan-profile.png"
+                  alt="Rohan Saeed"
+                  fill
+                  className="object-cover"
+                  priority
+                />
 
-            <div className="hero-anim-4 flex flex-wrap gap-3">
-              <Link href="/projects"
-                className="px-6 py-3.5 rounded-xl font-semibold text-sm transition-all hover:opacity-90 hover:-translate-y-0.5"
-                style={{ background: "var(--teal)", color: "var(--ink)" }}>
-                View my work →
-              </Link>
-              <Link href="/contact"
-                className="px-6 py-3.5 rounded-xl font-semibold text-sm border transition-colors hover:border-white/40"
-                style={{ border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.8)" }}>
-                Get in touch
-              </Link>
-              {/* <Link href="/crm/dashboard"
-                className="px-6 py-3.5 rounded-xl font-semibold text-sm border transition-colors hover:border-indigo-500/50"
-                style={{ border: "1px solid rgba(99,102,241,0.3)", color: "#818CF8", background: "rgba(99,102,241,0.08)" }}>
-                Live CRM Demo ↗
-              </Link> */}
+              </div>
+
             </div>
           </div>
+          
 
           {/* Stats row */}
           <div className="hero-anim-4 grid grid-cols-4 gap-4 mt-20 pt-16"
